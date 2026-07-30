@@ -1,14 +1,15 @@
 package com.como.archi.otel.c.application.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
 import com.como.archi.otel.c.application.command.ProcessPaymentCommand;
 import com.como.archi.otel.c.application.dto.assembler.PaymentAssembler;
 import com.como.archi.otel.c.application.dto.response.PaymentDTO;
 import com.como.archi.otel.c.domain.model.aggregate.Payment;
 import com.como.archi.otel.c.domain.repository.PaymentRepository;
 import com.como.archi.otel.c.domain.service.PaymentDomainService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 /**
  * 【Application 层 - Service】支付处理应用服务。
@@ -39,7 +40,7 @@ public class PaymentApplicationService {
     }
 
     public PaymentDTO process(ProcessPaymentCommand command) {
-        log.info("Processing payment, orderId={}, userId={}, amount={}",
+        log.info("S7====Project otel.c=======================Processing payment, orderId={}, userId={}, amount={}",
                 command.getOrderId(), command.getUserId(), command.getAmount());
 
         Payment payment = Payment.create(
@@ -49,7 +50,7 @@ public class PaymentApplicationService {
                 command.getMethod()
         );
 
-        log.info("Payment created, paymentId={}, transactionId={}",
+        log.info("S8====Project otel.c=======================Payment created, paymentId={}, transactionId={}",
                 payment.getPaymentId(), payment.getTransactionId());
 
         paymentDomainService.validate(payment.getOrderId(), payment.getUserId(), payment.getAmount());
@@ -59,7 +60,7 @@ public class PaymentApplicationService {
         payment.succeed();
         paymentRepository.save(payment);
 
-        log.info("Payment succeeded, paymentId={}, transactionId={}",
+        log.info("S9====Project otel.c=======================Payment succeeded, paymentId={}, transactionId={}",
                 payment.getPaymentId(), payment.getTransactionId());
 
         return PaymentAssembler.toDTO(payment);
