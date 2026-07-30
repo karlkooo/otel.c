@@ -1,0 +1,49 @@
+# Maven 构建产物
+target/
+*.jar
+*.war
+*.ear
+
+# Java 编译产物
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# 日志文件
+*.log
+logs/
+
+# OTel Agent JAR（二进制文件，需自行下载）
+agent/
+
+# 本地环境变量
+.env
+*.env
+
+# Spring Boot 本地配置（含敏感信息）
+application-local.properties
+application-local.yml
+application-secret.properties
+application-secret.yml
