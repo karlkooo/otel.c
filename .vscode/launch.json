@@ -1,22 +1,13 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    
         {
             "type": "java",
-            "name": "Current File",
+            "name": "System C - Payment Service (OTel Agent)",
             "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "Application",
-            "request": "launch",
-            "mainClass": "com.como.archi.otel.e.Application",
-            "projectName": "otel.e"
+            "mainClass": "com.como.archi.otel.c.Application",
+            "projectName": "otel.c",
+            "vmArgs": "-javaagent:C:/Users/Karl/.m2/repository/io/opentelemetry/javaagent/opentelemetry-javaagent/2.4.0/opentelemetry-javaagent-2.4.0.jar -Dotel.service.name=payment-service -Dotel.exporter.otlp.endpoint=http://localhost:4318 -Dotel.traces.exporter=logging -Dotel.metrics.exporter=none -Dotel.logs.exporter=none"
         }
     ]
 }
