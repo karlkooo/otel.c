@@ -55,6 +55,33 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.4.6</version>
+                <configuration>
+                    <extraDirectories>
+                        <paths>
+                            <path>
+                                <from>${project.build.directory}</from>
+                                <into>/app/extensions</into>
+                                <includes>
+                                    <include>*otel-extension.jar</include>
+                                </includes>
+                            </path>
+                        </paths>
+                    </extraDirectories>
+                    <to>
+                        <image>
+                            ccr-55bx874e-pub.cnc.su.baidubce.com/karl/karl_repo/otelc:v6
+                        </image>
+                        <auth>
+                            <username>root</username>
+                            <password>Qwert12345@!</password>
+                        </auth>
+                    </to>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <executions>
