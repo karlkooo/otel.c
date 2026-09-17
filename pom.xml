@@ -46,6 +46,17 @@
             <version>${opentelemetry.version}</version>
             <scope>provided</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -72,7 +83,7 @@
                     </extraDirectories>
                     <to>
                         <image>
-                            ccr-55bx874e-pub.cnc.su.baidubce.com/karl/karl_repo/otelc:v6
+                            ccr-55bx874e-pub.cnc.su.baidubce.com/karl/karl_repo/otelc:v7
                         </image>
                         <auth>
                             <username>root</username>
