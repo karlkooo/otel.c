@@ -7,7 +7,9 @@
             "request": "launch",
             "mainClass": "com.como.archi.otel.c.Application",
             "projectName": "otel.c",
-            "vmArgs": "-javaagent:C:/Users/Karl/.m2/repository/io/opentelemetry/javaagent/opentelemetry-javaagent/2.4.0/opentelemetry-javaagent-2.4.0.jar -Dotel.javaagent.extensions=${workspaceFolder}/target/otel.c-0.0.1-SNAPSHOT-otel-extension.jar -Dotel.service.name=payment-service -Dotel.traces.exporter=parent-logging -Dotel.metrics.exporter=none -Dotel.logs.exporter=none"
+//            "vmArgs": "-javaagent:C:/Users/Karl/.m2/repository/io/opentelemetry/javaagent/opentelemetry-javaagent/2.4.0/opentelemetry-javaagent-2.4.0.jar -Dotel.javaagent.extensions=${workspaceFolder}/target/otel.c-0.0.1-SNAPSHOT-otel-extension.jar -Dotel.service.name=payment-service -Dotel.traces.exporter=parent-logging -Dotel.metrics.exporter=none -Dotel.logs.exporter=none"
+            "vmArgs": "-javaagent:C:/Users/Karl/.m2/repository/io/opentelemetry/javaagent/opentelemetry-javaagent/2.4.0/opentelemetry-javaagent-2.4.0.jar -Dotel.javaagent.extensions=${workspaceFolder}/target/otel.c-0.0.1-SNAPSHOT-otel-extension.jar -Dotel.service.name=payment-service -Dotel.traces.exporter=otlp -Dotel.exporter.otlp.endpoint=https://otel-colloctor-http.ccoscn.cloud -Dotel.metrics.exporter=none -Dotel.logs.exporter=none"
+
         }
     ]
 }
